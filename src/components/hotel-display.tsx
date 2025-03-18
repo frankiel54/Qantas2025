@@ -1,14 +1,16 @@
+// 'use client';
+
 import { CancellationOption, Rating } from "@/mocks/data";
 
 interface HotelDisplayProps {
-    name: string;
-    title: string;
-    address: string[];
-    rating: Rating;
-    cancellationOption: CancellationOption;
+  name: string;
+  title: string;
+  address: string[];
+  rating: Rating;
+  cancellationOption: CancellationOption;
 }
 
-export default async function HotelDisplay({
+export default function HotelDisplay({
   name,
   title,
   address,
@@ -16,12 +18,14 @@ export default async function HotelDisplay({
   cancellationOption,
 }: HotelDisplayProps) {
   return (
-    <div className="text-left">
-      <div>{title}</div>
-      <div>{address[0]}</div>
-      <div>{name}</div>
+    <div className="text-left flex flex-col justify-between h-full">
+      <div>
+        <div className="text-2xl truncate">{title}</div>
+        <div className="text-gray-400">{address.join(", ")}</div>
+        <div className="pt-4 text-red-600 underline">{name}</div>
+      </div>
       {cancellationOption.cancellationType === "FREE_CANCELLATION" && (
-        <div>Free cancellation</div>
+        <div className=" text-green-600">Free cancellation</div>
       )}
     </div>
   );

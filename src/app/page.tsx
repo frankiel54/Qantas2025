@@ -1,14 +1,17 @@
 import Image from "next/image";
 import { data } from "@/mocks/data";
-import HotelCard from "@/components/hotel-card";
+import HotelsPanel from "@/components/hotels-panel";
 
-export default async function Home() {
+const city = "Sydney";
+
+export default function Home() {
   // const response = await fetch("http://example.com/user");
   // const data = await response.json();
   // console.log(data);
+
   return (
     <div className="max-w-4xl mx-auto p-5">
-      <div className="pb-2">
+      <div className="mb-10">
         <Image
           className="dark:invert"
           src="/qantas-logo.png"
@@ -17,11 +20,7 @@ export default async function Home() {
           height={38}
         />
       </div>
-      <div>
-        {data.results.map((result) => (
-          <HotelCard result={result} key={result.id} />
-        ))}
-      </div>
+      <HotelsPanel city={city} results={data.results} />
     </div>
   );
 }
