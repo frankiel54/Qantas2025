@@ -1,7 +1,13 @@
 Hello!
 
 ## Run instructions
-To get started, either run in developer mode:
+To get started, run:
+
+```bash
+npm install
+```
+
+Then, either run in developer mode:
 
 ```bash
 npm run dev
