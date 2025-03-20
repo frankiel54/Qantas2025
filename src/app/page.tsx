@@ -1,13 +1,12 @@
 import Image from "next/image";
-import { data } from "@/mocks/data";
+// import { data } from "@/mocks/data";
 import HotelsPanel from "@/components/hotels-panel";
 
 const city = "Sydney";
 
-export default function Home() {
-  // const response = await fetch("http://example.com/user");
-  // const data = await response.json();
-  // console.log(data);
+export default async function Home() {
+  const response = await fetch("http://example.com/user");
+  const data = await response.json();
 
   return (
     <div className="max-w-5xl mx-auto p-5">

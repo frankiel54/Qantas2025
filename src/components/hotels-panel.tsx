@@ -1,6 +1,6 @@
 "use client";
 
-import HotelCard from "@/components/hotel-card";
+import HotelCard from "./hotel-card";
 import { HotelResult } from "@/mocks/data";
 import { useState } from "react";
 

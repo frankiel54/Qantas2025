@@ -11,7 +11,7 @@ export default function PriceDisplay({
   displayPrice,
   savings,
 }: PriceDisplayProps) {
-  // TODO: Maybe fix the final savings not having static spacing if you have time
+  
   return (
     <div className="text-right flex flex-col justify-end h-full pb-4">
       <div className="text-sm mb-1">
