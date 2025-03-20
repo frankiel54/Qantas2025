@@ -19,7 +19,9 @@ export default function HotelDisplay({
   rating,
   cancellationOption,
 }: HotelDisplayProps) {
+  
   const [shouldTruncate, setShouldTruncate] = useState(true);
+
   return (
     <div className="text-left flex flex-col justify-between h-full">
       <div>
