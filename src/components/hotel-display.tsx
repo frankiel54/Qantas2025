@@ -1,5 +1,8 @@
+"use client";
+
 import { CancellationOption, Rating } from "@/mocks/data";
 import HotelRating from "./hotel-rating/hotel-rating";
+import { useState } from "react";
 
 interface HotelDisplayProps {
   name: string;
@@ -16,11 +19,19 @@ export default function HotelDisplay({
   rating,
   cancellationOption,
 }: HotelDisplayProps) {
+  const [shouldTruncate, setShouldTruncate] = useState(true);
   return (
     <div className="text-left flex flex-col justify-between h-full">
       <div>
         <div className="flex flex-row items-center">
-          <div className="text-2xl truncate">{title}</div>
+          <div
+            onClick={() => {
+              setShouldTruncate(!shouldTruncate);
+            }}
+            className={`text-2xl cursor-pointer ${shouldTruncate ? "truncate" : ""}`}
+          >
+            {title}
+          </div>
           <div className="ml-2">
             <HotelRating rating={rating} />
           </div>
