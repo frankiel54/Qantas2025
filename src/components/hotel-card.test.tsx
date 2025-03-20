@@ -1,9 +1,10 @@
+import { HotelResult } from "@/mocks/data";
 import HotelCard from "./hotel-card";
 import { render, screen } from "@testing-library/react";
 
 describe("HotelCard", () => {
   it("should render the correct information", () => {
-    const result = {
+    const result: HotelResult = {
       id: "mesq6mggyn",
       property: {
         propertyId: "P107802",

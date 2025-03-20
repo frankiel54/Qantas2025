@@ -1,5 +1,3 @@
-// 'use client';
-
 import { CancellationOption, Rating } from "@/mocks/data";
 import HotelRating from "./hotel-rating/hotel-rating";
 

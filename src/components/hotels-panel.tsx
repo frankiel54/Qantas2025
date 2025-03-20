@@ -24,22 +24,26 @@ export default function HotelsPanel({ results, city }: HotelsPanel) {
           {city}
         </div>
         <div>
-          <label htmlFor="sort-select" className="mr-1">Sort By:</label>
+          <label htmlFor="sort-select" className="mr-1">
+            Sort By:
+          </label>
           <select
             name="sort-by"
             id="sort-select"
             onClick={(e) => setSortOrder(parseInt(e.currentTarget.value))}
           >
-            <option value={'1'}>Price low-high</option>
-            <option value={'-1'}>Price high-low</option>
+            <option value={"1"}>Price low-high</option>
+            <option value={"-1"}>Price high-low</option>
           </select>
         </div>
       </div>
       <div>
-        {sortedResults.map((result) => (
-          <div className="mb-2" key={result.id}>
-            <HotelCard result={result} />
-          </div>
+        {sortedResults.map((result, index) => (
+          <HotelCard
+            key={result.id}
+            result={result}
+            showTopBorder={index === 0}
+          />
         ))}
       </div>
     </>

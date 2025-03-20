@@ -65,15 +65,25 @@ describe("HotelRating", () => {
       starHalf,
       starUnfilled,
     }) => {
-      render(<HotelRating rating={{ ratingType, ratingValue}} />);
+      render(
+        <HotelRating
+          rating={{ ratingType: ratingType as "star" | "self", ratingValue }}
+        />
+      );
 
-      expect(screen.queryAllByTestId("circle-filled").length).toBe(circleFilled);
+      expect(screen.queryAllByTestId("circle-filled").length).toBe(
+        circleFilled
+      );
       expect(screen.queryAllByTestId("circle-half").length).toBe(circleHalf);
-      expect(screen.queryAllByTestId("circle-unfilled").length).toBe(circleUnfilled);
+      expect(screen.queryAllByTestId("circle-unfilled").length).toBe(
+        circleUnfilled
+      );
 
       expect(screen.queryAllByTestId("star-filled").length).toBe(starFilled);
       expect(screen.queryAllByTestId("star-half").length).toBe(starHalf);
-      expect(screen.queryAllByTestId("star-unfilled").length).toBe(starUnfilled);
+      expect(screen.queryAllByTestId("star-unfilled").length).toBe(
+        starUnfilled
+      );
     }
   );
 });

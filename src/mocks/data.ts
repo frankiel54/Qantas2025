@@ -24,7 +24,7 @@ export interface PreviewImage {
 
 export interface Rating {
   ratingValue: number;
-  ratingType: string;
+  ratingType: "star" | "self";
 }
 
 export interface Offer {

@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import HotelsPanel from "./hotels-panel";
 import userEvent from "@testing-library/user-event";
+import { HotelResult } from "@/mocks/data";
 
 describe("HotelsPanel", () => {
-  const results = [
+  const results: HotelResult[] = [
     {
       id: "cxd650nuyo",
       property: {
@@ -115,8 +116,10 @@ describe("HotelsPanel", () => {
     expect(screen.getByText("Medium Hotel")).toBeVisible();
     expect(screen.getByText("Expensive Hotel")).toBeVisible();
     expect(
-        screen.getByText((_, element) => element?.textContent === "3 hotels in Sydney")
-      ).toBeVisible();
+      screen.getByText(
+        (_, element) => element?.textContent === "3 hotels in Sydney"
+      )
+    ).toBeVisible();
   });
 
   it("should render hotel cards in ascending order by default", () => {
@@ -129,13 +132,13 @@ describe("HotelsPanel", () => {
     const mediumHotel = screen.getByText("Medium Hotel");
     const expensiveHotel = screen.getByText("Expensive Hotel");
 
-    expect(priceLowest.compareDocumentPosition(priceMiddle)).toBe(4); 
-    expect(priceMiddle.compareDocumentPosition(priceHighest)).toBe(4); 
-    expect(priceLowest.compareDocumentPosition(priceHighest)).toBe(4); 
+    expect(priceLowest.compareDocumentPosition(priceMiddle)).toBe(4);
+    expect(priceMiddle.compareDocumentPosition(priceHighest)).toBe(4);
+    expect(priceLowest.compareDocumentPosition(priceHighest)).toBe(4);
 
-    expect(cheapestHotel.compareDocumentPosition(mediumHotel)).toBe(4); 
-    expect(mediumHotel.compareDocumentPosition(expensiveHotel)).toBe(4); 
-    expect(cheapestHotel.compareDocumentPosition(expensiveHotel)).toBe(4); 
+    expect(cheapestHotel.compareDocumentPosition(mediumHotel)).toBe(4);
+    expect(mediumHotel.compareDocumentPosition(expensiveHotel)).toBe(4);
+    expect(cheapestHotel.compareDocumentPosition(expensiveHotel)).toBe(4);
   });
 
   it("should render hotel cards in descending order after selection", async () => {
@@ -151,12 +154,12 @@ describe("HotelsPanel", () => {
     const mediumHotel = screen.getByText("Medium Hotel");
     const expensiveHotel = screen.getByText("Expensive Hotel");
 
-    expect(priceHighest.compareDocumentPosition(priceMiddle)).toBe(4); 
-    expect(priceMiddle.compareDocumentPosition(priceLowest)).toBe(4); 
-    expect(priceHighest.compareDocumentPosition(priceLowest)).toBe(4); 
+    expect(priceHighest.compareDocumentPosition(priceMiddle)).toBe(4);
+    expect(priceMiddle.compareDocumentPosition(priceLowest)).toBe(4);
+    expect(priceHighest.compareDocumentPosition(priceLowest)).toBe(4);
 
-    expect(expensiveHotel.compareDocumentPosition(mediumHotel)).toBe(4); 
-    expect(mediumHotel.compareDocumentPosition(cheapestHotel)).toBe(4); 
-    expect(expensiveHotel.compareDocumentPosition(cheapestHotel)).toBe(4); 
+    expect(expensiveHotel.compareDocumentPosition(mediumHotel)).toBe(4);
+    expect(mediumHotel.compareDocumentPosition(cheapestHotel)).toBe(4);
+    expect(expensiveHotel.compareDocumentPosition(cheapestHotel)).toBe(4);
   });
 });

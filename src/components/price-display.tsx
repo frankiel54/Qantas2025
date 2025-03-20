@@ -1,5 +1,3 @@
-// 'use client';
-
 import { Price } from "@/mocks/data";
 
 interface PriceDisplayProps {
@@ -18,7 +16,7 @@ export default function PriceDisplay({
         <span className="font-bold ">1</span> night total (
         {displayPrice.currency})
       </div>
-      <div className="flex justify-end mb-2">
+      <div className={`flex justify-end mb-2 ${savings? '': 'mb-7'}`}>
         <div className="text-xl">$</div>
         <div className="text-4xl">{displayPrice.amount}</div>
       </div>
