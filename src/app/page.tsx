@@ -5,7 +5,7 @@ import HotelsPanel from "@/components/hotels-panel";
 const city = "Sydney";
 
 export default async function Home() {
-  const response = await fetch("http://example.com/user");
+  const response = await fetch("http://www.example.com/hotels");
   const data = await response.json();
 
   return (

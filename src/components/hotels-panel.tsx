@@ -30,8 +30,8 @@ export default function HotelsPanel({ results, city }: HotelsPanel) {
             id="sort-select"
             onClick={(e) => setSortOrder(parseInt(e.currentTarget.value))}
           >
-            <option value={1}>Price low-high</option>
-            <option value={-1}>Price high-low</option>
+            <option value={'1'}>Price low-high</option>
+            <option value={'-1'}>Price high-low</option>
           </select>
         </div>
       </div>
